@@ -1,0 +1,15 @@
+{
+  "name": "betagt-admin",
+  "version": "1.0.0",
+  "description": "dashboard delivery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "allan roberto <allanroberto18@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "admin-lte": "^2.3.6",
+    "jquery-mask-plugin": "^1.14.0"
+  }
+}
