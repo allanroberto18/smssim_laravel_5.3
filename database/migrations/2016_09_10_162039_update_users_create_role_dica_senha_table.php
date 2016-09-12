@@ -14,7 +14,7 @@ class UpdateUsersCreateRoleDicaSenhaTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('client')->after('name');
+            $table->string('role')->default('cliente')->after('name');
             $table->string('dica_senha')->after('password');
         });
     }

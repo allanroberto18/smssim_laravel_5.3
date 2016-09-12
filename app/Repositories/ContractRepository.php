@@ -5,10 +5,10 @@ namespace SMSSim\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface UserRepository
+ * Interface ContractRepository
  * @package namespace SMSSim\Repositories;
  */
-interface UserRepository extends RepositoryInterface
+interface ContractRepository extends RepositoryInterface
 {
-    public function getUsersByRole($role);
+    //
 }

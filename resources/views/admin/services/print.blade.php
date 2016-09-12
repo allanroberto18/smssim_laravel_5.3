@@ -25,7 +25,7 @@
                     <tbody>
                         <tr>
                             <td colspan="2">
-                                <h3>Serviço</h3>
+                                <h3>Detalhes do Produto/Serviço</h3>
                             </td>
                         </tr>
                         <tr>

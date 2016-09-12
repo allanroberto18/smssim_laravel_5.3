@@ -1,11 +1,11 @@
 @extends('admin.base.list')
 @section('breadcrumbs')
-    {!! Breadcrumbs::render('admin_users') !!}
+    {!! Breadcrumbs::render('admin_contracts') !!}
 @endsection
 @section('header')
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-flat" target="_blank">
+            <a href="{{ route('admin.contracts.create') }}" class="btn btn-primary btn-flat" target="_blank">
                 <i class="fa fa-plus"></i> Novo Registro
             </a>
         </div>
@@ -37,7 +37,6 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Tipo</th>
             <th>Ação</th>
         </tr>
         </thead>
@@ -46,19 +45,18 @@
             <tr>
                 <td>{{$item->id}}</td>
                 <td>{{$item->name}}</td>
-                <td>{{$item->role}}</td>
                 <td>
-                    <a href="{{route('admin.users.edit',['id'=>$item->id])}}" class="btn btn-default"
+                    <a href="{{route('admin.contracts.edit',['id'=>$item->id])}}" class="btn btn-default"
                        data-toggle="tooltip" data-placement="top" target="_blank" title="Editar #{{ $item->id }}"
                     >
                         <i class="fa fa-pencil"></i>
                     </a>
-                    <a href="{{route('admin.users.show',['id'=>$item->id])}}" class="btn btn-default"
+                    <a href="{{route('admin.contracts.show',['id'=>$item->id])}}" class="btn btn-default"
                        data-toggle="tooltip" data-placement="top" target="_blank" title="Visualizar #{{ $item->id }}"
                     >
                         <i class="fa fa-search"></i>
                     </a>
-                    <a href="{{route('admin.users.print',['id'=>$item->id])}}" class="btn btn-default"
+                    <a href="{{route('admin.contracts.print',['id'=>$item->id])}}" class="btn btn-default"
                        data-toggle="tooltip" data-placement="top" target="_blank"
                        title="Imprimir Relatório #{{ $item->id }}"
                     >

@@ -30,12 +30,63 @@
                         </tr>
                         <tr>
                             <td>Nome</td>
-                            <td>{{ $entity->user->name }}</td>
+                            <td>{{ $entity->name }}</td>
                         </tr>
                         <tr>
                             <td>E-mail</td>
-                            <td>{{ $entity->user->email }}</td>
+                            <td>{{ $entity->email }}</td>
                         </tr>
+                        @if ($entity->role == 'vendedor')
+                        <tr>
+                            <td colspan="2">
+                                <h3>Contratos do Vendedor</h3>
+                            </td>
+                        </tr>
+                        @foreach($entity->contractsVendor as $item)
+                            <tr>
+                                <td>
+                                    {{ $item->client->name }}
+                                </td>
+                                <td>
+                                    <p>
+                                        <strong>Data do Contrato: </strong>{{ $item->data_contrato }}
+                                        <br>
+                                        <strong>Situação do Contrato: </strong>
+                                        @if ($item->status == 1)
+                                            Ativo
+                                        @else
+                                            Inativo
+                                        @endif
+                                    </p>
+                                </td>
+                            </tr>
+                        @endforeach
+                        @elseif ($entity->role == 'cliente')
+                        <tr>
+                            <td colspan="2">
+                                <h3>Contratos do Cliente</h3>
+                            </td>
+                        </tr>
+                        @foreach($entity->contractsClient as $item)
+                            <tr>
+                                <td>
+                                    Vendedor: {{ $item->vendor->name }}
+                                </td>
+                                <td>
+                                    <p>
+                                        <strong>Data do Contrato: </strong>{{ $item->data_contrato }}
+                                        <br>
+                                        <strong>Situação do Contrato: </strong>
+                                        @if ($item->status == 1)
+                                            Ativo
+                                        @else
+                                            Inativo
+                                        @endif
+                                    </p>
+                                </td>
+                            </tr>
+                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

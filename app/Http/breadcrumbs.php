@@ -68,3 +68,35 @@ Breadcrumbs::register("admin_services_edit", function($breadcrumbs, $entity)
     $breadcrumbs->push("Visualizar Registro #{$entity->name}", route("admin.services.show", [ 'id' => $entity->id ]));
     $breadcrumbs->push("Editar #{$entity->id}", route("admin.services.edit", [ 'id' => $entity->id ]));
 });
+
+// Dashboard > contracts
+Breadcrumbs::register("admin_contracts", function($breadcrumbs)
+{
+    $breadcrumbs->parent("admin_home");
+    $breadcrumbs->push("Listagem/Pesquisa de Registros", route("admin.contracts.index"));
+});
+
+// Dashboard > contracts > Create
+Breadcrumbs::register("admin_contracts_create", function($breadcrumbs)
+{
+    $breadcrumbs->parent("admin_home");
+    $breadcrumbs->push("Listagem/Pesquisa de Registros", route("admin.contracts.index"));
+    $breadcrumbs->push("Novo Registro", route("admin.contracts.create"));
+});
+
+// Dashboard > contracts > Show
+Breadcrumbs::register("admin_contracts_show", function($breadcrumbs, $entity)
+{
+    $breadcrumbs->parent("admin_home");
+    $breadcrumbs->push("Listagem/Pesquisa de Registros", route("admin.contracts.index"));
+    $breadcrumbs->push("Visualizar Registro #{$entity->name}", route("admin.contracts.show", [ 'id' => $entity->id ]));
+});
+
+// Dashboard > contracts > Edit
+Breadcrumbs::register("admin_contracts_edit", function($breadcrumbs, $entity)
+{
+    $breadcrumbs->parent("admin_home");
+    $breadcrumbs->push("Listagem/Pesquisa de Registros", route("admin.contracts.index"));
+    $breadcrumbs->push("Visualizar Registro #{$entity->name}", route("admin.contracts.show", [ 'id' => $entity->id ]));
+    $breadcrumbs->push("Editar #{$entity->id}", route("admin.contracts.edit", [ 'id' => $entity->id ]));
+});

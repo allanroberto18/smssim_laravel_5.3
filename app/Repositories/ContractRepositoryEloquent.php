@@ -4,22 +4,20 @@ namespace SMSSim\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use SMSSim\Repositories\UserRepository;
-use SMSSim\Models\User;
-use SMSSim\Validators\UserValidator;
+use SMSSim\Repositories\ContractRepository;
+use SMSSim\Models\Contract;
+use SMSSim\Validators\ContractValidator;
 
 /**
- * Class UserRepositoryEloquent
+ * Class ContractRepositoryEloquent
  * @package namespace SMSSim\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class ContractRepositoryEloquent extends BaseRepository implements ContractRepository
 {
-
-    protected $fieldSearchable = [ 'name' => 'like', 'role' => 'like' ];
-
-    public function getUsersByRole($role){
-        return $this->model->where([ 'role' => $role ])->pluck('name','id');
-    }
+    protected $fieldSearchable = [
+        'client.name' => 'like',
+        'vendor.name' => 'like'
+    ];
 
     /**
      * Specify Model class name
@@ -28,7 +26,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function model()
     {
-        return User::class;
+        return Contract::class;
     }
 
     

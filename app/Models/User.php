@@ -29,4 +29,14 @@ class User extends Authenticatable implements Transformable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function contractsClient()
+    {
+        return $this->hasMany(Contract::class, 'client_id', 'id');
+    }
+
+    public function contractsVendor()
+    {
+        return $this->hasMany(Contract::class, 'vendor_id', 'id');
+    }
 }

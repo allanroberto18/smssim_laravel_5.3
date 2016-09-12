@@ -100,4 +100,42 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], fu
             'uses' => 'ServiceController@update',
         ]);
     });
+    Route::group(['prefix' => 'contratos', 'as' => 'contracts.'], function(){
+        Route::get('', [
+            'as' => 'index',
+            'uses' => 'ContractController@index',
+        ]);
+        Route::get('create', [
+            'as' => 'create',
+            'uses' => 'ContractController@create',
+        ]);
+        Route::get('show/{id}', [
+            'as' => 'show',
+            'uses' => 'ContractController@show',
+        ]);
+        Route::get('print/{id}', [
+            'as' => 'print',
+            'uses' => 'ContractController@print',
+        ]);
+        Route::get('edit/{id}', [
+            'as' => 'edit',
+            'uses' => 'ContractController@edit',
+        ]);
+        Route::get('destroy/{id}', [
+            'as' => 'destroy',
+            'uses' => 'ContractController@destroy',
+        ]);
+        Route::post('store', [
+            'as' => 'store',
+            'uses' => 'ContractController@store',
+        ]);
+        Route::post('destroy', [
+            'as' => 'destroy_selected',
+            'uses' => 'ContractController@destroyBySelection',
+        ]);
+        Route::post('update/{id}', [
+            'as' => 'update',
+            'uses' => 'ContractController@update',
+        ]);
+    });
 });

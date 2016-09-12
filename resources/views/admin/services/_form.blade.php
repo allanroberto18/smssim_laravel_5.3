@@ -19,13 +19,3 @@
         <span class='help-block'><i class="fa fa-times"></i> {{ $errors->first('description') }}</span>
     @endif
 </div>
-
-@section('js')
-    @parent
-    <script src="{{ asset('src/node_modules/jquery-mask-plugin/src/jquery.mask.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('.price').mask('000.000.000.000.000,00', {reverse: true});
-        });
-    </script>
-@endsection

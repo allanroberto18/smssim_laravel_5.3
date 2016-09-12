@@ -4,8 +4,10 @@ namespace SMSSim\Providers;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use SMSSim\Repositories\ServicoRepository;
-use SMSSim\Repositories\ServicoRepositoryEloquent;
+use SMSSim\Repositories\ContractRepository;
+use SMSSim\Repositories\ContractRepositoryEloquent;
+use SMSSim\Repositories\ServiceRepository;
+use SMSSim\Repositories\ServiceRepositoryEloquent;
 use SMSSim\Repositories\UserRepository;
 use SMSSim\Repositories\UserRepositoryEloquent;
 
@@ -39,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
         $loader->alias('Breadcrumbs', \DaveJamesMiller\Breadcrumbs\Facade::class);
 
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
-        $this->app->bind(ServicoRepository::class, ServicoRepositoryEloquent::class);
+        $this->app->bind(ServiceRepository::class, ServiceRepositoryEloquent::class);
+        $this->app->bind(ContractRepository::class, ContractRepositoryEloquent::class);
     }
 }

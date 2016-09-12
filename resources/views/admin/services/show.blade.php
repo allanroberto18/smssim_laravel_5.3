@@ -3,7 +3,7 @@
     {!! Breadcrumbs::render('admin_services_show', $entity) !!}
 @endsection
 @section('header')
-    <a href="{{ route('services') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Novo Registro</a>
+    <a href="{{ route('admin.services.create') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Novo Registro</a>
 @endsection
 @section('list')
     <table class="table table-hover">

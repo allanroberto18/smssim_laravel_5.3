@@ -30,3 +30,11 @@ $factory->define(\SMSSim\Models\Service::class, function (Faker\Generator $faker
         'price' => random_int(100, 200),
     ];
 });
+
+$factory->define(\SMSSim\Models\Contract::class, function(Faker\Generator $faker){
+    $date = new \DateTime('now');
+
+    return [
+        'data_contrato' => $date->format('Y-m-d')
+    ];
+});

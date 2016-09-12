@@ -3,7 +3,7 @@
     {!! Breadcrumbs::render('admin_users_show', $entity) !!}
 @endsection
 @section('header')
-    <a href="{{ route('users') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Novo Registro</a>
+    <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-flat"><i class="fa fa-plus"></i> Novo Registro</a>
 @endsection
 @section('list')
     <table class="table table-hover">
@@ -16,42 +16,78 @@
         <tbody>
             <tr>
                 <td colspan="2">
-                    <h3>Usuário</h3>
+                    <h3>Dados do Usuário</h3>
                 </td>
             </tr>
             <tr>
                 <td>Nome</td>
-                <td>{{ $entity->user->name }}</td>
+                <td>{{ $entity->name }}</td>
             </tr>
             <tr>
                 <td>E-mail</td>
-                <td>{{ $entity->user->email }}</td>
+                <td>{{ $entity->email }}</td>
             </tr>
-            <tr>
-                <td>Dica de Senha</td>
-                <td>{{ $entity->user->dica_senha }}</td>
-            </tr>
+            @if ($entity->role == 'vendedor')
             <tr>
                 <td colspan="2">
-                    <h3>Cliente</h3>
+                    <h3>Contratos do Vendedor</h3>
                 </td>
             </tr>
+            @foreach($entity->contractsVendor as $item)
+                <tr>
+                    <td>
+                        {{ $item->client->name }}
+                    </td>
+                    <td>
+                        <p>
+                            <strong>Data do Contrato: </strong>{{ $item->data_contrato }}
+                            <br>
+                            <strong>Situação do Contrato: </strong>
+                            @if ($item->status == 1)
+                                <span class="label label-success"><i class="fa fa-check"></i> Ativo</span>
+                            @else
+                                <span class="label label-warning"><i class="fa fa-close"></i> Inativo</span>
+                            @endif
+                            <br>
+                            <a href="{{ route('admin.contracts.show', ['id' => $item->id]) }}" target="_blank"
+                               class="btn btn-default btn-sm mt">
+                                <i class="fa fa-search"></i> Detalhes do Contrato
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+            @endforeach
+            @elseif ($entity->role == 'cliente')
             <tr>
-                <td>Telefone</td>
-                <td>{{ $entity->phone }}</td>
+                <td colspan="2">
+                    <h3>Contratos do Cliente</h3>
+                </td>
             </tr>
-            <tr>
-                <td>Endereço</td>
-                <td>{{ $entity->address }}</td>
-            </tr>
-            <tr>
-                <td>CEP</td>
-                <td>{{ $entity->zipcode }}</td>
-            </tr>
-            <tr>
-                <td>Cidade/Estado</td>
-                <td>{{ $entity->city }}/{{ $entity->state }}</td>
-            </tr>
+            @foreach($entity->contractsClient as $item)
+                <tr>
+                    <td>
+                        Vendedor: {{ $item->vendor->name }}
+                    </td>
+                    <td>
+                        <p>
+                            <strong>Data do Contrato: </strong>{{ $item->data_contrato }}
+                            <br>
+                            <strong>Situação do Contrato: </strong>
+                            @if ($item->status == 1)
+                                <span class="label label-success"><i class="fa fa-check"></i> Ativo</span>
+                            @else
+                                <span class="label label-warning"><i class="fa fa-close"></i> Inativo</span>
+                            @endif
+                            <br>
+                            <a href="{{ route('admin.contracts.show', ['id' => $item->id]) }}" target="_blank"
+                               class="btn btn-default btn-sm mt">
+                                <i class="fa fa-search"></i> Detalhes do Contrato
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+            @endforeach
+            @endif
         </tbody>
     </table>
 @endsection

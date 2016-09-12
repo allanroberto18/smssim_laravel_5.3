@@ -8,8 +8,11 @@
 
     <link rel="stylesheet" href="{{ asset('src/node_modules/admin-lte/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('src/node_modules/admin-lte/plugins/select2/select2.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset('src/node_modules/admin-lte/dist/css/AdminLTE.min.css') }}">
+
+    {{--<link rel="stylesheet" href="{{ asset('src/node_modules/admin-lte/dist/css/skins/_all-skins.min.css"') }}">--}}
     <link rel="stylesheet" href="{{ asset('src/node_modules/admin-lte/dist/css/skins/skin-blue.min.css') }}">
     <link rel="stylesheet" href="{{ asset('src/css/main.css') }}">
 
@@ -46,8 +49,35 @@
 <script src="{{ asset('src/node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <script src="{{ asset('src/node_modules/admin-lte/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('src/node_modules/admin-lte/plugins/fastclick/fastclick.js') }}"></script>
+<!-- InputMask -->
+<script src="{{ asset('src/node_modules/admin-lte/plugins/input-mask/jquery.inputmask.js') }}"></script>
+<script src="{{ asset('src/node_modules/admin-lte/plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
+<script src="{{ asset('src/node_modules/admin-lte/plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
+
+<!-- Datepicker -->
+<script src="{{ asset('src/node_modules/admin-lte/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('src/node_modules/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js') }}"></script>
+
+<!-- Select2 -->
+<script src="{{ asset('src/node_modules/admin-lte/plugins/select2/select2.min.js') }}"></script>
+
+<!-- mask plugin -->
+<script src="{{ asset('src/node_modules/jquery-mask-plugin/src/jquery.mask.js') }}"></script>
+
 <script src="{{ asset('src/node_modules/admin-lte/dist/js/app.min.js') }}"></script>
 <script src="{{ asset('src/node_modules/admin-lte/dist/js/demo.js') }}"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.date').datepicker({
+            format: 'dd/mm/yyyy',
+            language: "pt-BR",
+            autoclose: true
+        });
+        $(".date").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+        $('.price').mask('000.000.000.000.000,00', {reverse: true});
+    });
+</script>
 
 @yield('js')
 </body>

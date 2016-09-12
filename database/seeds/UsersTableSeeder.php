@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             'dica_senha' => 'padrão dantas + dedé',
             'role' => 'admin'
         ]);
+
         factory(\SMSSim\Models\User::class)->create([
             'name' => 'Delmo Rodrigues',
             'email' => 'delmo@smssim.com.br',
@@ -25,6 +26,15 @@ class UsersTableSeeder extends Seeder
             'dica_senha' => 'um dois três quatro cinco seis',
             'role' => 'vendedor'
         ]);
+
+        factory(\SMSSim\Models\User::class)->create([
+            'name' => 'Jhennifer Teixeira F. Silva',
+            'email' => 'jhennifer.teixeira@gmail.com',
+            'password' => bcrypt('123456'),
+            'dica_senha' => 'um dois três quatro cinco seis',
+            'role' => 'vendedor'
+        ]);
+
         factory(\SMSSim\Models\User::class, 5)->create();
     }
 }
