@@ -62,4 +62,42 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], fu
             'uses' => 'UserController@update',
         ]);
     });
+    Route::group(['prefix' => 'servicos', 'as' => 'services.'], function(){
+        Route::get('', [
+            'as' => 'index',
+            'uses' => 'ServiceController@index',
+        ]);
+        Route::get('create', [
+            'as' => 'create',
+            'uses' => 'ServiceController@create',
+        ]);
+        Route::get('show/{id}', [
+            'as' => 'show',
+            'uses' => 'ServiceController@show',
+        ]);
+        Route::get('print/{id}', [
+            'as' => 'print',
+            'uses' => 'ServiceController@print',
+        ]);
+        Route::get('edit/{id}', [
+            'as' => 'edit',
+            'uses' => 'ServiceController@edit',
+        ]);
+        Route::get('destroy/{id}', [
+            'as' => 'destroy',
+            'uses' => 'ServiceController@destroy',
+        ]);
+        Route::post('store', [
+            'as' => 'store',
+            'uses' => 'ServiceController@store',
+        ]);
+        Route::post('destroy', [
+            'as' => 'destroy_selected',
+            'uses' => 'ServiceController@destroyBySelection',
+        ]);
+        Route::post('update/{id}', [
+            'as' => 'update',
+            'uses' => 'ServiceController@update',
+        ]);
+    });
 });

@@ -22,3 +22,11 @@ $factory->define(SMSSim\Models\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\SMSSim\Models\Service::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'description' => $faker->text,
+        'price' => random_int(100, 200),
+    ];
+});

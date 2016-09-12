@@ -51,6 +51,27 @@
                     </li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-box"></i>
+                    <span>Produtos/Serviços</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{ route('admin.services.index') }}">
+                            <i class="fa fa-list-ul"></i> Listar/Pesquisar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.services.create') }}">
+                            <i class="fa fa-plus"></i> Novo Registro
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fa fa-sign-out"></i> <span>Sair</span>
